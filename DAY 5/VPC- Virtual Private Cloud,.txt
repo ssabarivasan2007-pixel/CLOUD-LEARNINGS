@@ -1,0 +1,21 @@
+VPC- Virtual Private Cloud,
+
+A VPC os a Virtual network that closely resembles rk that youd operate data centre a traditional netu in your own After you create a ves you can add Subnets
+
+
+Subnets
+
+A Subnet addresses. reside in is a range of IP in your own A Subnet must a Single Availability Bone. After you add subriets, AWS resources you can you'r vpc
+
+Routing Internet Gatoway
+
+is use d to commons cation to the network internet access to provi direc the public Subnet.
+
+
+Public Subnet
+
+which contains direct internet
+
+Private Subnet
+
+which contains indirect internet access
