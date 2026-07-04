@@ -1,0 +1,889 @@
+what is git why are we using it what type of problems are solved by it 
+GitHub branches, repos, branching strategies, release cycles, what is cicd pipelines.
+
+
+
+Exact definition
+Why it exists
+What problem it solves
+Real-world example
+How companies use it
+Easy-to-remember notes
+One-line interview definitions
+1. What is Git?
+Exact Definition
+
+Git is a distributed version control system (DVCS) that tracks changes made to files over time, allowing multiple developers to work on the same project simultaneously without overwriting each other's work.
+
+One-Line Definition
+
+Git is a version control system used to track and manage changes in source code.
+
+Why was Git created?
+
+Imagine this.
+
+A company has 10 developers.
+
+Everyone has the project.
+
+Hospital App
+
+Developer A
+Developer B
+Developer C
+Developer D
+...
+
+Developer A changes
+
+Login Page
+
+Developer B changes
+
+Payment Page
+
+Developer C changes
+
+Dashboard
+
+Now everyone emails their files.
+
+login_final.zip
+
+login_final_new.zip
+
+login_final_latest.zip
+
+login_final_latest2.zip
+
+Imagine combining all these manually.
+
+Impossible.
+
+This was the problem before Git.
+
+Problem Git Solves
+
+Without Git
+
+Developer A
+↓
+
+Project
+
+↑
+
+Developer B
+
+Both edit same files.
+
+One copy overwrites another.
+
+History disappears.
+
+Nobody knows
+
+who changed
+when changed
+why changed
+
+With Git
+
+Developer A
+
+↓
+
+Git
+
+↑
+
+Developer B
+
+Git keeps history.
+
+Nothing gets lost.
+
+Everything is traceable.
+
+What does Git actually do?
+
+Git records snapshots.
+
+Suppose
+
+Day 1
+
+app.py
+
+You commit.
+
+Git stores
+
+Snapshot 1
+
+Next day
+
+Added Login
+
+Commit again
+
+Git stores
+
+Snapshot 2
+
+Next day
+
+Added Payment
+
+Commit
+
+Git stores
+
+Snapshot 3
+
+Git can restore any snapshot.
+
+Git Repository (Repo)
+Exact Definition
+
+A Git repository is a storage location where Git keeps the project files along with the complete history of all changes.
+
+One-Line Definition
+
+A repository is a project folder that Git manages.
+
+Example
+
+Hospital-App/
+
+app.py
+
+login.py
+
+payment.py
+
+.git/
+
+The hidden
+
+.git
+
+contains
+
+commits
+branches
+history
+configuration
+
+Without
+
+.git
+
+Git no longer works.
+
+Local Repository
+Definition
+
+Repository stored on your own computer.
+
+Laptop
+
+Hospital-App
+
+Only you can see it.
+
+Remote Repository
+Definition
+
+A repository stored on a remote server for collaboration.
+
+Usually
+
+GitHub
+GitLab
+Bitbucket
+
+Example
+
+github.com/company/hospital-app
+Why do we need Remote Repository?
+
+Suppose
+
+Developer A
+
+India
+
+Developer B
+
+USA
+
+Developer C
+
+Germany
+
+How will they work together?
+
+Remote Repository solves this.
+
+Everyone pushes code.
+
+Everyone pulls code.
+
+What is GitHub?
+Exact Definition
+
+GitHub is a cloud-based platform that hosts Git repositories and provides collaboration features like pull requests, code reviews, issue tracking, and CI/CD integration.
+
+One-line Definition
+
+GitHub is a cloud platform used to host Git repositories.
+
+Git vs GitHub
+
+Git
+
+Software
+
+Runs locally
+
+Tracks changes
+
+GitHub
+
+Website
+
+Stores repositories online
+
+Helps collaboration
+
+Why GitHub?
+
+Because Git alone only stores locally.
+
+GitHub allows
+
+Developer A
+
+↓
+
+GitHub
+
+↑
+
+Developer B
+
+What is Version Control?
+
+Definition
+
+Version Control is the process of managing and recording changes to files over time.
+
+Example
+
+Version 1
+
+Login
+
+↓
+
+Version 2
+
+Login
+Signup
+
+↓
+
+Version 3
+
+Payment
+
+Git stores all versions.
+
+Commit
+Definition
+
+A commit is a permanent snapshot of your project at a specific point in time.
+
+One Line
+
+Commit = Save point.
+
+Example
+
+Commit 1
+
+Added Login
+
+Commit 2
+
+Added Dashboard
+
+Commit 3
+
+Fixed Payment Bug
+Branch
+
+This is one of the most important concepts.
+
+Exact Definition
+
+A branch is an independent line of development that allows developers to work on new features, bug fixes, or experiments without affecting the main codebase.
+
+One-Line Definition
+
+A branch is an isolated copy of the project used for independent development.
+
+Why Branch Exists?
+
+Suppose hospital software is already being used.
+
+Main Project
+
+Working perfectly
+
+Now you want
+
+Add AI Chatbot
+
+If you directly edit Main
+
+Users
+↓
+
+Broken Software
+
+Very dangerous.
+
+Instead
+
+Main
+
+↓
+
+New Branch
+
+AI Feature
+
+Only after testing
+
+Merge into Main.
+
+Real-world Example
+
+Imagine a notebook.
+
+Original notebook
+
+Math Notes
+
+You want to experiment.
+
+Instead of writing directly,
+
+you photocopy it.
+
+Write in photocopy.
+
+If correct
+
+Copy back.
+
+That photocopy is Branch.
+
+Branch Types
+Main Branch
+
+Definition
+
+Contains stable production-ready code.
+
+main
+
+Never break this.
+
+Feature Branch
+
+Definition
+
+Created to develop a new feature.
+
+Example
+
+feature/login
+
+feature/payment
+
+feature/search
+Bug Fix Branch
+
+Definition
+
+Created to fix normal bugs.
+
+Example
+
+bugfix/login-error
+Hotfix Branch
+
+Definition
+
+Created to fix urgent production issues.
+
+Example
+
+Website crashes.
+
+Cannot wait until next release.
+
+Create
+
+hotfix/server-down
+
+Fix immediately.
+
+Merge into main.
+
+Deploy.
+
+Release Branch
+
+Definition
+
+Created to prepare the application for production release.
+
+Example
+
+release/v2.0
+
+Developers stop adding features.
+
+Only
+
+testing
+bug fixing
+documentation
+Merge
+
+Definition
+
+Combines one branch into another.
+
+Example
+
+Feature Branch
+
+↓
+
+Merge
+
+↓
+
+Main
+Pull Request (PR)
+
+Definition
+
+A request to merge one branch into another after code review.
+
+Example
+
+Developer
+
+↓
+
+Creates Feature
+
+↓
+
+Pull Request
+
+↓
+
+Senior reviews
+
+↓
+
+Merge
+
+Branching Strategy
+
+This is what companies actually follow.
+
+Exact Definition
+
+A branching strategy is a workflow that defines how branches are created, used, merged, and maintained throughout the software development lifecycle.
+
+One-Line Definition
+
+A branching strategy is a set of rules for managing Git branches during development.
+
+Why Branching Strategy Exists?
+
+Suppose
+
+100 Developers
+
+No rules.
+
+Everyone creates
+
+branch1
+
+branch2
+
+abc
+
+test123
+
+newbranch
+
+Nobody knows
+
+where to merge
+when to merge
+release order
+
+Chaos.
+
+Strategy solves this.
+
+Types of Branching Strategies
+1. Git Flow
+
+Most famous.
+
+Structure
+
+main
+
+develop
+
+feature/*
+
+release/*
+
+hotfix/*
+
+Flow
+
+main
+
+↑
+
+release
+
+↑
+
+develop
+
+↑
+
+feature
+
+Used by
+
+Large enterprise projects.
+
+Advantages
+
+✔ Stable
+
+✔ Organized
+
+Disadvantages
+
+Lots of branches.
+
+Slow.
+
+2. GitHub Flow
+
+Very simple.
+
+main
+
+↓
+
+feature
+
+↓
+
+Pull Request
+
+↓
+
+main
+
+No develop branch.
+
+Used by
+
+Small teams
+
+Web apps
+
+Startups
+
+3. GitLab Flow
+
+Similar to GitHub Flow but adds environments.
+
+main
+
+↓
+
+staging
+
+↓
+
+production
+
+Useful when deployment environments matter.
+
+4. Trunk-Based Development
+
+Everybody works close to
+
+main
+
+Very short-lived branches.
+
+Merged many times daily.
+
+Used by
+
+Google
+
+Facebook
+
+Netflix (variations)
+
+Advantages
+
+Fast CI/CD.
+
+Which Strategy Should You Learn?
+
+For DevOps interviews
+
+Know all four.
+
+Most common:
+
+Git Flow
+GitHub Flow
+Trunk-Based Development
+Release Cycle
+Exact Definition
+
+A release cycle is the sequence of activities involved in planning, developing, testing, and deploying a new version of software.
+
+One-Line Definition
+
+A release cycle is the complete process of delivering a new software version.
+
+Example
+
+Requirement
+
+↓
+
+Development
+
+↓
+
+Testing
+
+↓
+
+Bug Fix
+
+↓
+
+Release
+
+↓
+
+Production
+
+↓
+
+Monitoring
+
+Repeat.
+
+What is CI/CD?
+Exact Definition
+
+CI/CD is a software delivery practice that automates the process of integrating code changes, testing them, and deploying them to production quickly and reliably.
+
+One-Line Definition
+
+CI/CD automates building, testing, and deploying software.
+
+CI
+
+Continuous Integration
+
+Definition
+
+Developers frequently merge code into a shared repository where automated builds and tests verify the changes.
+
+Purpose
+
+Catch integration problems early.
+
+CD
+
+Two meanings:
+
+Continuous Delivery
+
+Every successful build is ready to deploy, but deployment to production requires manual approval.
+
+Continuous Deployment
+
+Every successful build is automatically deployed to production without manual approval.
+
+CI/CD Pipeline
+Exact Definition
+
+A CI/CD pipeline is an automated sequence of stages that builds, tests, validates, and deploys software whenever code changes are made.
+
+One-Line Definition
+
+A CI/CD pipeline is an automated workflow that transforms source code into a running application.
+
+Typical Pipeline
+
+Developer
+    │
+    ▼
+Git Commit
+    │
+    ▼
+Push to GitHub
+    │
+    ▼
+CI Server (e.g., Jenkins)
+    │
+    ├── Checkout Code
+    ├── Build Application
+    ├── Run Unit Tests
+    ├── Static Code Analysis
+    ├── Build Docker Image
+    ├── Push Image to Registry
+    ▼
+CD Stage
+    ├── Deploy to Development
+    ├── Deploy to Staging
+    ├── Run Integration Tests
+    ├── (Optional) Manual Approval
+    ▼
+Deploy to Production
+    ▼
+Monitoring & Alerts
+Real-World Example
+
+Suppose you update the login feature of a hospital application.
+
+You create a feature/login branch.
+You write and test your code locally.
+You commit the changes.
+You push the branch to GitHub.
+You open a Pull Request.
+A teammate reviews the code and approves it.
+The branch is merged into main.
+The CI pipeline automatically:
+Checks out the code
+Builds the application
+Runs automated tests
+Creates a Docker image
+Pushes the image to a container registry
+The CD pipeline deploys the new version to a staging environment.
+After validation (or automatically, depending on the process), the application is deployed to production.
+
+The entire flow happens consistently with minimal manual effort.
+
+Complete Development Workflow
+Requirement
+      │
+      ▼
+Create Feature Branch
+      │
+      ▼
+Write Code
+      │
+      ▼
+Commit Changes
+      │
+      ▼
+Push to GitHub
+      │
+      ▼
+Open Pull Request
+      │
+      ▼
+Code Review
+      │
+      ▼
+Merge into Main
+      │
+      ▼
+CI Pipeline
+(Build + Test + Package)
+      │
+      ▼
+CD Pipeline
+(Deploy)
+      │
+      ▼
+Production
+      │
+      ▼
+Users
+Interview One-Line Definitions
+Concept	One-Line Definition
+  Git	
+ 
+     A distributed version control system that tracks changes in source code.
+Repository
+     A Git-managed project containing files and complete change history.
+Local Repository	
+     A Git repository stored on the developer's local machine.
+Remote Repository	
+     A Git repository hosted on a remote server for collaboration.
+GitHub	
+     A cloud platform for hosting Git repositories and collaborating on code.
+Version Control
+    The practice of tracking and managing changes to files over time.
+Commit	
+    A permanent snapshot of a project's state at a specific point in time.
+Branch
+    An independent line of development used to isolate changes.
+Merge	
+   The process of combining changes from one branch into another.
+Pull Request	
+    A request to review and merge changes from one branch into another.
+Branching Strategy	
+    A defined workflow for creating, managing, and merging Git branches.
+Git Flow	
+    A branching strategy with dedicated main, develop, feature, release, and hotfix branches.
+GitHub Flow	
+    A lightweight strategy where feature branches are merged directly into main through Pull Requests.
+Trunk-Based Development	
+    A strategy that keeps branches short-lived and integrates changes into the main branch frequently.
+Release Cycle	
+    The end-to-end process of planning, building, testing, releasing, and maintaining a software version.
+Continuous Integration (CI)	
+    The practice of frequently integrating code changes and automatically validating them through builds and tests.
+Continuous Delivery	
+    Ensures every successful build is ready for deployment, with production deployment requiring manual approval.
+Continuous Deployment	
+    Automatically deploys every successful build to production without manual intervention.
+CI/CD Pipeline	
+    An automated workflow that builds, tests, packages, and deploys software changes.
+
+These definitions are accurate and align with the terminology commonly used in software engineering and DevOps interviews.
